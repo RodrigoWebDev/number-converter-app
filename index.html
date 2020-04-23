@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Converter App MVP</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        const reverseStr = function (str) {
+          return str.split("").reverse().join("");
+        };
+        const toStr = (str) => str.toString().trim();
+        const pow = (numb, index) => Math.pow(parseInt(numb), index);
+
+        const dec2bin = (numb) => {
+          let n = numb;
+          let bin = "";
+          while (n != 0) {
+            let str = (n % 2).toString();
+            bin += str;
+            n = parseInt(n / 2);
+          }
+          return reverseStr(bin);
+        };
+
+        const bin2dec = (val) => {
+          debugger;
+          var newVal = 0;
+          if (typeof val === "number") {
+            value = toStr(val);
+          }
+
+          val = reverseStr(val);
+
+          for (let i = 0; i < val.length; i++) {
+            if (val.charAt(i) != 0) {
+              newVal += pow(2, i);
+            }
+          }
+
+          console.log(newVal);
+        };
+
+        window.dec2bin = dec2bin;
+        window.bin2dec = bin2dec;
+      })();
+
+      //console.log("dc2bin -->", dec2bin(3465));
+      console.log("bin2dec -->", bin2dec("110110001001"));
+    </script>
+  </body>
+</html>
